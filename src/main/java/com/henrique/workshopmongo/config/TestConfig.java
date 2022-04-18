@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 
 import com.henrique.workshopmongo.domain.Post;
 import com.henrique.workshopmongo.domain.User;
+import com.henrique.workshopmongo.dto.AuthorDTO;
 import com.henrique.workshopmongo.repository.PostRepository;
 import com.henrique.workshopmongo.repository.UserRepository;
 
@@ -38,8 +39,8 @@ public class TestConfig implements CommandLineRunner{
 		
 		userRepository.saveAll(Arrays.asList(u1,u2,u3));
 		
-		Post p1 = new Post(null, sdf.parse("25/03/2018"), "Partiu viagem", "Vou viajar!", u1);
-		Post p2 = new Post(null, sdf.parse("29/03/2018"), "Bom dia", "Acordei!", u1);
+		Post p1 = new Post(null, sdf.parse("25/03/2018"), "Partiu viagem", "Vou viajar!", new AuthorDTO(u1));
+		Post p2 = new Post(null, sdf.parse("29/03/2018"), "Bom dia", "Acordei!", new AuthorDTO(u1));
 		
 		postRepository.saveAll(Arrays.asList(p1,p2));
 	}
